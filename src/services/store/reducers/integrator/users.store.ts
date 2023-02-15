@@ -7,7 +7,6 @@ import {
 import { UserStateProps } from 'services/store/models/integrator';
 
 const initialState: UserStateProps = {
-  permissions: [],
   permissionsLoading: false,
   groups: [],
   groupsLoading: false,
@@ -29,7 +28,6 @@ const usersIntegratorSlice = createSlice({
       })
       .addCase(fetchPermissions.fulfilled, (state, action) => {
         state.permissionsLoading = false;
-        state.permissions = action.payload;
       })
       .addCase(fetchGroups.pending, (state) => {
         state.groupsLoading = true;

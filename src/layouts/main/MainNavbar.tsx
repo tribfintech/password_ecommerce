@@ -89,24 +89,12 @@ export default function MainNavbar() {
           }}
         >
           <RouterLink to="/">
-            <Logo />
+            {/* <Logo /> */}
           </RouterLink>
-          <Label color="info" sx={{ ml: 1 }}>
-            Ts v2.5.0
-          </Label>
-          <Box sx={{ flexGrow: 1 }} />
 
           <MenuHidden width="mdDown">
             <MenuDesktop isOffset={isOffset} isHome={isHome} navConfig={navConfig} />
           </MenuHidden>
-
-          <Button
-            variant="contained"
-            target="_blank"
-            href="https://material-ui.com/store/items/minimal-dashboard/"
-          >
-            teste
-          </Button>
 
           <MenuHidden width="mdUp">
             <MenuMobile isOffset={isOffset} isHome={isHome} navConfig={navConfig} />

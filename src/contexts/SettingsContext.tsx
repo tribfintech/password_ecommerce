@@ -100,7 +100,7 @@ function SetColor(themeColor: ThemeColor) {
 const initialState: SettingsContextProps = {
   themeMode: 'light',
   themeDirection: 'ltr',
-  themeColor: 'default',
+  themeColor: 'orange',
   themeStretch: false,
   onChangeMode: () => {},
   onChangeDirection: () => {},

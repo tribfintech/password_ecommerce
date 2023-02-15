@@ -1,4 +1,3 @@
-import { PermissionsListProps } from 'screens/integrator/groups/new/Model';
 import {
   ClientGroupListResponseProps,
   ClientUsersResponseProps
@@ -6,7 +5,6 @@ import {
 
 export interface UserStateProps {
   permissionsLoading: boolean;
-  permissions: PermissionsListProps[];
   groups: ClientGroupListResponseProps[];
   groupsLoading: boolean;
   users: ClientUsersResponseProps[];
