@@ -1,14 +1,14 @@
 import { createContext, ReactNode } from 'react';
-import { RootState, useSelector } from 'services/store';
+// import { RootState, useSelector } from 'services/store';
 
-import { AuthAdminProps } from 'services/store/models';
+// import { AuthAdminProps } from 'services/store/models';
 
-const RContext = createContext<AuthAdminProps>({} as AuthAdminProps);
+// const RContext = createContext<AuthAdminProps>({} as AuthAdminProps);
 
-function RProvider({ children }: { children: ReactNode }) {
-  const AuthAdmin = useSelector((state: RootState) => state.AuthAdmin);
+// function RProvider({ children }: { children: ReactNode }) {
+//   const AuthAdmin = useSelector((state: RootState) => state.AuthAdmin);
 
-  return <RContext.Provider value={{ ...AuthAdmin }}>{children}</RContext.Provider>;
-}
+//   return <RContext.Provider value={{ ...AuthAdmin }}>{children}</RContext.Provider>;
+// }
 
-export { RContext, RProvider };
+// export { RContext, RProvider };

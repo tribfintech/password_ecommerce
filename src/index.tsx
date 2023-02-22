@@ -39,7 +39,7 @@ import { PersistGate } from 'redux-persist/lib/integration/react';
 import AdapterDateFns from '@material-ui/lab/AdapterDateFns';
 import LocalizationProvider from '@material-ui/lab/LocalizationProvider';
 // redux
-import { store, persistor } from 'services/store';
+import store from 'services/password-store'
 // contexts
 import { SettingsProvider } from './contexts/SettingsContext';
 import { CollapseDrawerProvider } from './contexts/CollapseDrawerContext';
@@ -64,7 +64,7 @@ import reportWebVitals from './reportWebVitals';
 ReactDOM.render(
   <HelmetProvider>
     <ReduxProvider store={store}>
-      <PersistGate loading={<LoadingScreen />} persistor={persistor}>
+      {/* <PersistGate loading={<LoadingScreen />} persistor={persistor}> */}
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           <SettingsProvider>
             <CollapseDrawerProvider>
@@ -76,7 +76,7 @@ ReactDOM.render(
             </CollapseDrawerProvider>
           </SettingsProvider>
         </LocalizationProvider>
-      </PersistGate>
+      {/* </PersistGate> */}
     </ReduxProvider>
   </HelmetProvider>,
   document.getElementById('root')

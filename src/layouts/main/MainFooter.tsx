@@ -24,32 +24,44 @@ const SOCIALS = [
 
 const LINKS = [
   {
-    headline: 'Minimal',
+    headline: 'Produtos',
     children: [
-      { name: 'About us', href: PATH_PAGE.about },
-      { name: 'Contact us', href: PATH_PAGE.contact },
-      { name: 'FAQs', href: PATH_PAGE.faqs }
+      { name: 'Safe-ID', href: PATH_PAGE.about },
+      { name: 'e-CPF', href: PATH_PAGE.contact },
+      { name: 'e-CNPJ', href: PATH_PAGE.faqs },
+      { name: 'Mídias Físicas', href: PATH_PAGE.faqs }
+    ]
+  },
+  {
+    headline: 'Institucional',
+    children: [
+      { name: 'Sobre nós', href: PATH_PAGE.about },
+      { name: 'Contate-nos', href: PATH_PAGE.contact },
+      { name: 'FAQ', href: PATH_PAGE.faqs }
     ]
   },
   {
     headline: 'Legal',
     children: [
-      { name: 'Terms and Condition', href: '#' },
-      { name: 'Privacy Policy', href: '#' }
+      { name: 'Termos e Condições', href: '#' },
+      { name: 'Política de Privacidade', href: '#' }
     ]
   },
   {
-    headline: 'Contact',
+    headline: 'Contato',
     children: [
-      { name: 'support@minimals.cc', href: '#' },
-      { name: 'Los Angeles, 359  Hidden Valley Road', href: '#' }
+      { name: 'atendimento@passwordcertificacao.com.br', href: '#' },
+      { name: 'R. dos Cajueiros, 1832 - St. Comercial, Sinop - MT, 78550-162', href: '#' }
     ]
   }
 ];
 
 const RootStyle = styled('div')(({ theme }) => ({
-  position: 'relative',
-  backgroundColor: theme.palette.background.default
+  // position: 'relative',
+  backgroundColor: theme.palette.background.default,
+  // maxHeight: 50,
+  height: '100%',
+  boxSizing: 'border-box'
 }));
 
 // ----------------------------------------------------------------------
@@ -58,17 +70,17 @@ export default function MainFooter() {
   return (
     <RootStyle>
       <Divider />
-      <Container maxWidth="lg" sx={{ pt: 10 }}>
+      <Container sx={{ pt: 5, height: '100%' }}>
         <Grid
           container
           justifyContent={{ xs: 'center', md: 'space-between' }}
           sx={{ textAlign: { xs: 'center', md: 'left' } }}
         >
-          <Grid item xs={12} sx={{ mb: 3 }}>
+          {/* <Grid item xs={12} sx={{ mb: 3 }}>
             <ScrollLink to="move_top" spy smooth>
               <Logo sx={{ mx: { xs: 'auto', md: 'inherit' } }} />
             </ScrollLink>
-          </Grid>
+          </Grid> */}
           <Grid item xs={8} md={3}>
             <Typography variant="body2" sx={{ pr: { md: 5 } }}>
               The starting point for your next project with Minimal UI Kit, built on the newest
@@ -89,7 +101,7 @@ export default function MainFooter() {
             </Stack>
           </Grid>
 
-          <Grid item xs={12} md={7}>
+          <Grid item xs={12} md={9}>
             <Stack
               spacing={5}
               direction={{ xs: 'column', md: 'row' }}
@@ -125,15 +137,16 @@ export default function MainFooter() {
           component="p"
           variant="body2"
           sx={{
-            mt: 10,
-            pb: 5,
+            mt: 5,
+            pb: 2,
             fontSize: 13,
-            textAlign: { xs: 'center', md: 'left' }
+            textAlign: { xs: 'center', md: 'center' }
           }}
         >
-          © 2021. All rights reserved
+          © 2023. Todos os direitos reservados - Password Soluções em Tecnologia
         </Typography>
       </Container>
+      <Divider />
     </RootStyle>
   );
 }

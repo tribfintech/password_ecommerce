@@ -11,17 +11,9 @@ const ROOTS_COMPANY = ''; // '/integrador'
 const ROOTS_CLIENT = '/painel-cliente'; // '/integrador'
 // ----------------------------------------------------------------------
 
-export const PATH_AUTH = {
-  root: ROOTS_AUTH,
-  login: path(ROOTS_AUTH, '/login'),
-  loginUnprotected: path(ROOTS_AUTH, '/login-unprotected'),
-  register: path(ROOTS_AUTH, '/register'),
-  registerUnprotected: path(ROOTS_AUTH, '/register-unprotected'),
-  resetPassword: path(ROOTS_AUTH, '/reset-password'),
-  verify: path(ROOTS_AUTH, '/verify')
-};
-
 export const PATH_PAGE = {
+  home: '/home',
+  products: '/produtos',
   comingSoon: '/coming-soon',
   maintenance: '/maintenance',
   pricing: '/pricing',
@@ -33,6 +25,16 @@ export const PATH_PAGE = {
   page500: '/500',
   components: '/components'
 };
+export const PATH_AUTH = {
+  root: ROOTS_AUTH,
+  login: path(ROOTS_AUTH, '/login'),
+  loginUnprotected: path(ROOTS_AUTH, '/login-unprotected'),
+  register: path(ROOTS_AUTH, '/register'),
+  registerUnprotected: path(ROOTS_AUTH, '/register-unprotected'),
+  resetPassword: path(ROOTS_AUTH, '/reset-password'),
+  verify: path(ROOTS_AUTH, '/verify')
+};
+
 
 export const PATH_APP = {
   login: '/acesso',

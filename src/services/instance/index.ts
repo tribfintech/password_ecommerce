@@ -1,9 +1,11 @@
-import axios from 'axios';
+import axios from "axios";
+
+const apiBaseUrl = "https://apiar.safeweb.com.br/passwordapi/api/vendasportal/"
 
 export const axiosInstance = axios.create({
-  baseURL: process.env.REACT_APP_BASE_URL,
+  baseURL: apiBaseUrl,
   timeout: 36000,
   headers: {
-    'Content-Type': 'application/json'
-  }
+    "Content-Type": "application/x-www-form-urlencoded",
+  },
 });
