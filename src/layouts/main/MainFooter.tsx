@@ -60,8 +60,7 @@ const RootStyle = styled('div')(({ theme }) => ({
   // position: 'relative',
   backgroundColor: theme.palette.background.default,
   // maxHeight: 50,
-  height: '100%',
-  boxSizing: 'border-box'
+  boxSizing: 'border-box',
 }));
 
 // ----------------------------------------------------------------------

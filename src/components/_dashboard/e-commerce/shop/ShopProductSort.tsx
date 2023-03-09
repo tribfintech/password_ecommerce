@@ -1,41 +1,41 @@
-import { Icon } from '@iconify/react';
-import { useState } from 'react';
-import chevronUpFill from '@iconify/icons-eva/chevron-up-fill';
-import chevronDownFill from '@iconify/icons-eva/chevron-down-fill';
+import { Icon } from "@iconify/react";
+import { useState } from "react";
+import chevronUpFill from "@iconify/icons-eva/chevron-up-fill";
+import chevronDownFill from "@iconify/icons-eva/chevron-down-fill";
 // material
-import { Menu, Button, MenuItem, Typography } from '@material-ui/core';
+import { Menu, Button, MenuItem, Typography } from "@material-ui/core";
 // redux
-import { useDispatch, useSelector } from '../../../../redux/store';
-import { sortByProducts } from '../../../../redux/slices/product';
+// import { useDispatch, useSelector } from '../../../../redux/store';
+// import { sortByProducts } from '../../../../redux/slices/product';
 // @types
-import { ProductState } from '../../../../@types/products';
+import { ProductState } from "../../../../@types/products";
 
 // ----------------------------------------------------------------------
 
 const SORT_BY_OPTIONS = [
-  { value: 'featured', label: 'Featured' },
-  { value: 'newest', label: 'Newest' },
-  { value: 'priceDesc', label: 'Price: High-Low' },
-  { value: 'priceAsc', label: 'Price: Low-High' }
+  { value: "featured", label: "Featured" },
+  { value: "newest", label: "Newest" },
+  { value: "priceDesc", label: "Price: High-Low" },
+  { value: "priceAsc", label: "Price: Low-High" },
 ];
 
 function renderLabel(label: string | null) {
-  if (label === 'featured') {
-    return 'Featured';
+  if (label === "featured") {
+    return "Featured";
   }
-  if (label === 'newest') {
-    return 'Newest';
+  if (label === "newest") {
+    return "Newest";
   }
-  if (label === 'priceDesc') {
-    return 'Price: High-Low';
+  if (label === "priceDesc") {
+    return "Price: High-Low";
   }
-  return 'Price: Low-High';
+  return "Price: Low-High";
 }
 
 export default function ShopProductSort() {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const [open, setOpen] = useState<HTMLButtonElement | null>(null);
-  const { sortBy } = useSelector((state: { product: ProductState }) => state.product);
+  // const { sortBy } = useSelector((state: { product: ProductState }) => state.product);
 
   const handleOpen = (currentTarget: HTMLButtonElement) => {
     setOpen(currentTarget);
@@ -47,7 +47,7 @@ export default function ShopProductSort() {
 
   const handleSortBy = (value: string) => {
     handleClose();
-    dispatch(sortByProducts(value));
+    // dispatch(sortByProducts(value));
   };
 
   return (
@@ -59,8 +59,12 @@ export default function ShopProductSort() {
         endIcon={<Icon icon={open ? chevronUpFill : chevronDownFill} />}
       >
         Sort By:&nbsp;
-        <Typography component="span" variant="subtitle2" sx={{ color: 'text.secondary' }}>
-          {renderLabel(sortBy)}
+        <Typography
+          component="span"
+          variant="subtitle2"
+          sx={{ color: "text.secondary" }}
+        >
+          {/* {renderLabel(sortBy)} */}
         </Typography>
       </Button>
       <Menu
@@ -68,15 +72,15 @@ export default function ShopProductSort() {
         anchorEl={open}
         open={Boolean(open)}
         onClose={handleClose}
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-        transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+        transformOrigin={{ vertical: "top", horizontal: "right" }}
       >
         {SORT_BY_OPTIONS.map((option) => (
           <MenuItem
             key={option.value}
-            selected={option.value === sortBy}
+            // selected={option.value === sortBy}
             onClick={() => handleSortBy(option.value)}
-            sx={{ typography: 'body2' }}
+            sx={{ typography: "body2" }}
           >
             {option.label}
           </MenuItem>

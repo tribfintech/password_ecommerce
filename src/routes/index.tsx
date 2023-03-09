@@ -4,6 +4,7 @@ import { Navigate, useRoutes, useLocation } from "react-router-dom";
 import MainLayout from "layouts/main";
 import Page404 from "pages/Page404";
 import Home from "./../screens/home/index";
+import Checkout from "./../screens/checkout/index";
 
 // ----------------------------------------------------------------------
 
@@ -21,6 +22,10 @@ export default function Router() {
           path: "home",
           element: <Home />,
         },
+        {
+          path: "checkout",
+          element: <Checkout />
+        }
       ],
     },
     // { path: "*", element: <Navigate to="/404" replace /> },

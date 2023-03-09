@@ -14,6 +14,11 @@ export interface MediaTypeProps {
 }
 
 export interface HomeViewProps {
+  a1MediaOption: string[];
+  a3MediaOptions: string[];
+  defaultValidities: string[];
+  safeIdValidities: string[];
+  handleCheckout: (values: CertificateProps) => void;
 }
 
 export interface CertificateProps {

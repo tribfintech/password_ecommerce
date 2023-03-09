@@ -1,7 +1,7 @@
 import { Link as ScrollLink } from "react-scroll";
-import { useLocation, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 // material
-import { Box, Link, Container, Typography, Stack } from "@material-ui/core";
+import { Stack } from "@material-ui/core";
 // components
 import Logo from "../../components/Logo";
 //
@@ -14,16 +14,20 @@ export default function MainLayout() {
   return (
     <Stack
       direction="column"
-      justifyContent="flex-end"
-      sx={{ height: "100%", boxSizing: "border-box" }}
+      // justifyContent="space-between"
+      sx={{ boxSizing: "border-box", height: '100vh' }}
     >
+
       <MainNavbar />
-      <div id="outlet" style={{ height: 'auto', flexGrow: 1 }}>
+
+      <div style={{ flexGrow: 1 }}>
         <Outlet />
       </div>
+
       <div id="footer">
         <MainFooter />
       </div>
+
     </Stack>
     // <>
 

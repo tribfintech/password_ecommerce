@@ -1,56 +1,44 @@
+import { makeCheckout } from "services/store/checkoutSlice";
 import View from "./view";
-import { axiosInstance } from "services/instance";
-import { useEffect, useState } from "react";
-import { MediaTypeProps, ProductProps } from "./model/index";
+import { useDispatch } from "react-redux";
+import { CertificateProps } from "screens/home/model";
+import { useNavigate } from "react-router";
+import { PATH_PAGE } from './../../routes/paths';
 
 const Home: React.FC = () => {
-  const [productList, setProductList] = useState<ProductProps[]>([]);
-  const [mediaTypeList, setMediaTypeList] = useState<MediaTypeProps[]>([]);
+  const a1MediaOption = ["Arquivo"];
+  const a3MediaOptions = ["Token", "Cartão", "Safe-ID", "Sem mídia"];
 
-  async function getCertTypes() {
-    const qs = require("qs");
-    const endpoint = "CertType/";
-    const payload = qs.stringify({
-      apiKey: "12567wfrdf47c2843ddb7a9e20d4ew2",
-    });
-    await axiosInstance
-      .post(endpoint, payload)
-      .then((response) => {
-        setProductList(response.data);
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.log("error", error);
-      });
-  }
+  const defaultValidities = ["1 Ano", "2 Anos", "3 Anos"];
+  const safeIdValidities = ["4 Meses", "1 Ano", "2 Anos", "3 Anos"];
 
-  async function getMediaTypes() {
-    const qs = require("qs");
-    const endpoint = "MidiaType";
-    const payload = qs.stringify({
-      apiKey: "12567wfrdf47c2843ddb7a9e20d4ew2",
-    });
-    await axiosInstance
-      .post(endpoint, payload)
-      .then((response) => {
-        setMediaTypeList(response.data);
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.log("error", error);
-      });
-  }
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    // getCertTypes();
-    // getMediaTypes();
-  }, []);
+const steps = ['Carrinho', 'Pagamento'];
 
-  useEffect(() => {
+  const handleCheckout = (values: CertificateProps) => {
+    dispatch(makeCheckout(values));
+    navigate(PATH_PAGE.checkout)
+  };
 
-  }, [mediaTypeList]);
+  return (
+    <View
+      {...{
+        // root
+        a1MediaOption,
+        a3MediaOptions,
+        defaultValidities,
+        safeIdValidities,
+        handleCheckout,
 
-  return <View />;
+        // product
+
+        // stepper
+        steps
+      }}
+    />
+  );
 };
 
 export default Home;

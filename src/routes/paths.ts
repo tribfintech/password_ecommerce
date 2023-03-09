@@ -13,6 +13,7 @@ const ROOTS_CLIENT = '/painel-cliente'; // '/integrador'
 
 export const PATH_PAGE = {
   home: '/home',
+  checkout: '/checkout',
   products: '/produtos',
   comingSoon: '/coming-soon',
   maintenance: '/maintenance',

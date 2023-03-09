@@ -111,7 +111,7 @@ export default function ProductNewForm({ isEdit, currentProduct }: ProductNewFor
       } catch (error) {
         console.error(error);
         setSubmitting(false);
-        setErrors(error);
+        // setErrors(error);
       }
     }
   });
@@ -125,7 +125,7 @@ export default function ProductNewForm({ isEdit, currentProduct }: ProductNewFor
         'images',
         acceptedFiles.map((file: File | string) =>
           Object.assign(file, {
-            preview: URL.createObjectURL(file)
+            // preview: URL.createObjectURL(file)
           })
         )
       );

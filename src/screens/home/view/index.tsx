@@ -6,22 +6,33 @@ import {
   TextField,
   Typography,
 } from "@material-ui/core";
-import { CertificateProps, HomeViewProps } from "../model";
+import { HomeViewProps } from "../model";
 import { Form, FormikProvider, useFormik } from "formik";
 import { useEffect } from "react";
 import * as Yup from "yup";
-import { useDispatch } from "react-redux";
-import { makeCheckout } from "services/password-store/checkoutSlice";
+import { RootStyle } from "./styles";
 
-const View: React.FC<HomeViewProps> = () => {
-  const dispatch = useDispatch()
-
+const View: React.FC<HomeViewProps> = ({
+  a1MediaOption,
+  a3MediaOptions,
+  defaultValidities,
+  safeIdValidities,
+  handleCheckout,
+}) => {
   const validateSchema = Yup.object().shape({
-    product: Yup.string().nullable().required("O tipo do produto é Obrigatório."),
-    model: Yup.string().nullable().required("O modelo do certificado é Obrigatório."),
+    product: Yup.string()
+      .nullable()
+      .required("O tipo do produto é Obrigatório."),
+    model: Yup.string()
+      .nullable()
+      .required("O modelo do certificado é Obrigatório."),
     media: Yup.string().nullable().required("O tipo da Mídia é Obrigatório."),
-    validity: Yup.string().nullable().required("O tempo de Validade é Obrigatório."),
-    emission: Yup.string().nullable().required("O tipo de emissão é Obrigatório."),
+    validity: Yup.string()
+      .nullable()
+      .required("O tempo de Validade é Obrigatório."),
+    emission: Yup.string()
+      .nullable()
+      .required("O tipo de emissão é Obrigatório."),
   });
 
   const formik = useFormik({
@@ -35,17 +46,8 @@ const View: React.FC<HomeViewProps> = () => {
     },
     onSubmit: (values) => handleCheckout(values),
   });
-  
-  const handleCheckout = (values: CertificateProps) => {
-    dispatch(makeCheckout(values));
-  }
 
   const { getFieldProps, setFieldValue, errors, touched } = formik;
-  const a1MediaOption = ["Arquivo"];
-  const a3MediaOptions = ["Token", "Cartão", "Safe-ID", "Sem mídia"];
-
-  const defaultValidities = ["1 Ano", "2 Anos", "3 Anos"];
-  const safeIdValidities = ["4 Meses", "1 Ano", "2 Anos", "3 Anos"];
 
   const isA1: boolean = getFieldProps("model").value === "A1";
   const isSafeId: boolean = getFieldProps("media").value === "Safe-ID";
@@ -62,26 +64,19 @@ const View: React.FC<HomeViewProps> = () => {
   }, [isA1]);
 
   useEffect(() => {
-    if (isSafeId && (getFieldProps("validity").value === "4 Meses")) {
+    if (isSafeId && getFieldProps("validity").value === "4 Meses") {
       setFieldValue("validity", "");
-      return
+      return;
     }
-    if(getFieldProps("validity").value === "4 Meses") {
+    if (getFieldProps("validity").value === "4 Meses") {
       setFieldValue("validity", "");
     }
   }, [isSafeId]);
 
   return (
-    <FormikProvider value={formik}>
-      <Form>
-        <Container
-          sx={{
-            width: "100%",
-            height: "auto",
-            boxSizing: "border-box",
-            pt: 30,
-          }}
-        >
+    <RootStyle>
+      <FormikProvider value={formik}>
+        <Form>
           <Grid
             id="first"
             container
@@ -206,9 +201,9 @@ const View: React.FC<HomeViewProps> = () => {
               </Grid>
             </Grid>
           </Grid>
-        </Container>
-      </Form>
-    </FormikProvider>
+        </Form>
+      </FormikProvider>
+    </RootStyle>
   );
 };
 

@@ -7,8 +7,8 @@ import { Box, Grid, Card, Button, Typography } from '@material-ui/core';
 // @types
 import { BillingAddress as Address, OnCreateBilling } from '../../../../@types/products';
 // redux
-import { useDispatch } from '../../../../redux/store';
-import { onBackStep, onNextStep, createBilling } from '../../../../redux/slices/product';
+// import { useDispatch } from '../../../../redux/store';
+// import { onBackStep, onNextStep, createBilling } from '../../../../redux/slices/product';
 // utils
 import mockData from '../../../../utils/mock-data';
 
@@ -88,7 +88,7 @@ function AddressItem({ address, onNextStep, onCreateBilling }: AddressItemProps)
 
 export default function CheckoutBillingAddress() {
   //
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const [open, setOpen] = useState(false);
 
@@ -101,15 +101,15 @@ export default function CheckoutBillingAddress() {
   };
 
   const handleNextStep = () => {
-    dispatch(onNextStep());
+    // dispatch(onNextStep());
   };
 
   const handleBackStep = () => {
-    dispatch(onBackStep());
+    // dispatch(onBackStep());
   };
 
   const handleCreateBilling = (value: Address) => {
-    dispatch(createBilling(value));
+    // dispatch(createBilling(value));
   };
 
   return (

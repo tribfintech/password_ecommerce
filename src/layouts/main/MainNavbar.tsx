@@ -121,7 +121,7 @@ export default function MainNavbar() {
         </Container>
       </ToolbarStyle>
       {isOffset && <ToolbarShadowStyle />}
-      <Divider />
+      {/* <Divider /> */}
     </AppBar>
   );
 }
